@@ -162,4 +162,67 @@ public class SistemaElectrico {
         obj.agregar(e10);
         obj.agregar(e11);
         obj.agregar(e12);
+        
+          Scanner sn = new Scanner(System.in);
+        boolean salir = false;
+        int opcion; 
+
+        while (!salir) {
+        	System.out.println("*MENÚ*");
+        	System.out.println("Plantas: 1)Coca Codo Sinclair 2)Sopladora");
+        	System.out.println("Región: 1)Costa 2)Sierra 3)Oriente");
+        	System.out.println("Ciudad: 1)Guayaquil 2)Manta 3)Quito 4)Ambato 5)Tena 6)Nueva Loja");
+        	System.out.println("");
+        	System.out.println("1. Consumo total por planta");
+            System.out.println("2. Consumo total por ciudad");
+            System.out.println("3. Consumo total por planta y ciudad");
+            System.out.println("4. Consumo y region");
+            System.out.println("5. Salir");
+
+            try {
+
+                System.out.println("Escribe una de las opciones");
+                opcion = sn.nextInt();
+
+                switch (opcion) {
+                    case 1:
+                        System.out.println("Has seleccionado la opcion 1");
+                        System.out.println("Ingrese un id de planta:");
+                        int nu = sn.nextInt();
+                        obj.ConsumoTotalPlanta(nu);
+
+                        break;
+                    case 2:
+                        System.out.println("Has seleccionado la opcion 2");
+                        System.out.println("Ingrese un id de ciudad");
+                        int n = sn.nextInt();
+                        obj.ConsumoTotalCiudad(n);
+                        break;
+                    case 3:
+                        System.out.println("Has seleccionado la opcion 3");
+                        System.out.println("Ingrese un id de planta:");
+                        int n1 = sn.nextInt();
+                        System.out.println("Ingrese un id de ciudad:");
+                        int n2 = sn.nextInt();
+                        obj.ConsumoTotalPlantaCiudad(n1, n2);
+                        break;
+                    case 4:
+                        System.out.println("Has seleccionado la opcion 4");
+                        obj.ConsumoTotalRegion();
+                        break;
+                    case 5:
+                        salir = true;
+                        break;
+                    default:
+                        System.out.println("Solo números entre 1 y 5");
+                }
+            } catch (InputMismatchException e) {
+                System.out.println("Debes insertar un número");
+                sn.next();
+            }
+        }
+
+    }
+
+}
       
